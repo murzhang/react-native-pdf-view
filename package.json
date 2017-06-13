@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-pdf-view@git+https://github.com/cnjon/react-native-pdf-view.git",
+        "scope": null,
+        "escapedName": "react-native-pdf-view",
+        "name": "react-native-pdf-view",
+        "rawSpec": "git+https://github.com/cnjon/react-native-pdf-view.git",
+        "spec": "git+https://github.com/cnjon/react-native-pdf-view.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:cnjon/react-native-pdf-view.git",
+          "sshUrl": "git+ssh://git@github.com/cnjon/react-native-pdf-view.git",
+          "httpsUrl": "git+https://github.com/cnjon/react-native-pdf-view.git",
+          "gitUrl": "git://github.com/cnjon/react-native-pdf-view.git",
+          "shortcut": "github:cnjon/react-native-pdf-view",
+          "directUrl": "https://raw.githubusercontent.com/cnjon/react-native-pdf-view/master/package.json"
+        }
+      },
+      "d:\\USEABCV2\\SourceCode\\YSApp"
+    ]
+  ],
+  "_from": "git+https://github.com/cnjon/react-native-pdf-view.git",
+  "_id": "react-native-pdf-view@0.4.0",
+  "_inCache": true,
+  "_location": "/react-native-pdf-view",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-pdf-view@git+https://github.com/cnjon/react-native-pdf-view.git",
+    "scope": null,
+    "escapedName": "react-native-pdf-view",
+    "name": "react-native-pdf-view",
+    "rawSpec": "git+https://github.com/cnjon/react-native-pdf-view.git",
+    "spec": "git+https://github.com/cnjon/react-native-pdf-view.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:cnjon/react-native-pdf-view.git",
+      "sshUrl": "git+ssh://git@github.com/cnjon/react-native-pdf-view.git",
+      "httpsUrl": "git+https://github.com/cnjon/react-native-pdf-view.git",
+      "gitUrl": "git://github.com/cnjon/react-native-pdf-view.git",
+      "shortcut": "github:cnjon/react-native-pdf-view",
+      "directUrl": "https://raw.githubusercontent.com/cnjon/react-native-pdf-view/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/cnjon/react-native-pdf-view.git#2a7be88b85d6228dabfa24d5537060687304e3a4",
+  "_shasum": "6d74c191e3794db37956c7c8dbb79a0c3a5cf886",
+  "_shrinkwrap": null,
+  "_spec": "react-native-pdf-view@git+https://github.com/cnjon/react-native-pdf-view.git",
+  "_where": "d:\\USEABCV2\\SourceCode\\YSApp",
+  "author": {
+    "name": "cnjon",
+    "url": "https://github.com/cnjon"
+  },
+  "bugs": {
+    "url": "https://github.com/cnjon/react-native-pdf-view/issues"
+  },
+  "dependencies": {},
+  "description": "A pdf file view component for react native.",
+  "devDependencies": {},
+  "gitHead": "2a7be88b85d6228dabfa24d5537060687304e3a4",
+  "homepage": "https://github.com/cnjon/react-native-pdf-view#readme",
+  "keywords": [
+    "react-component",
+    "react-native",
+    "android",
+    "ios",
+    "pdf",
+    "view"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-pdf-view",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-native": "*"
+  },
+  "readme": "# react-native-pdf-view\r\nReact Native PDF View (cross-platform support)\r\n\r\n### Breaking changes\r\n\r\n* React native 0.40 moved iOS headers, thus all iOS react import statements has been changed. Use version 0.4.* for react native >=0.40. For earlier version see below breaking change.\r\n\r\n* React native 0.19 changed the ReactProps class which led to problems with updating native view properties (see https://github.com/facebook/react-native/issues/5649). These errors are corrected in react-native-pdf-view version 0.2.0. Use version 0.2.* for react native >=0.19 and for earlier react native versions use version 0.1.3.\r\n\r\n### Installation\r\n```bash\r\nnpm i react-native-pdf-view --save\r\n\r\nreact-native link react-native-pdf-view\r\n```\r\n* In `android/setting.gradle`\r\n\r\n```gradle\r\n...\r\ninclude ':PDFView'\r\nproject(':PDFView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pdf-view/android')\r\n```\r\n\r\n* In `android/app/build.gradle`\r\n\r\n```gradle\r\n...\r\ndependencies {\r\n    ...\r\n    compile project(':PDFView')\r\n}\r\n```\r\n\r\n* register module (in MainActivity.java)\r\n\r\nOn newer versions of React Native (0.18+):\r\n```java\r\nimport com.keyee.pdfview.PDFView;  // <--- import\r\n\r\npublic class MainActivity extends ReactActivity {\r\n  ......\r\n    @Override\r\n    protected List<ReactPackage> getPackages() {\r\n      return Arrays.<ReactPackage>asList(\r\n        new PDFView(), // <------ add here\r\n        new MainReactPackage());\r\n    }\r\n}\r\n```\r\n\r\nOn older versions of React Native:\r\n```java\r\nimport com.keyee.pdfview.PDFView;  // <--- import\r\n\r\npublic class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {\r\n  ......\r\n\r\n  @Override\r\n  protected void onCreate(Bundle savedInstanceState) {\r\n    super.onCreate(savedInstanceState);\r\n    mReactRootView = new ReactRootView(this);\r\n\r\n    mReactInstanceManager = ReactInstanceManager.builder()\r\n      .setApplication(getApplication())\r\n      .setBundleAssetName(\"index.android.bundle\")\r\n      .setJSMainModuleName(\"index.android\")\r\n      .addPackage(new MainReactPackage())\r\n      .addPackage(new PDFView())              // <------ add here\r\n      .setUseDeveloperSupport(BuildConfig.DEBUG)\r\n      .setInitialLifecycleState(LifecycleState.RESUMED)\r\n      .build();\r\n\r\n    mReactRootView.startReactApplication(mReactInstanceManager, \"ExampleRN\", null);\r\n\r\n    setContentView(mReactRootView);\r\n  }\r\n\r\n  ......\r\n\r\n}\r\n```\r\n\r\n### Usage\r\n\r\nFirst, require it from your app's JavaScript files with:\r\n```bash\r\nimport PDFView from 'react-native-pdf-view';\r\n```\r\n\r\n\r\n### Example\r\n\r\n```js\r\n'use strict';\r\n\r\nimport React,{\r\n    Component\r\n} from 'react';\r\n\r\nimport {\r\n    StyleSheet,\r\n    View\r\n} from 'react-native';\r\n\r\nimport PDFView from 'react-native-pdf-view';\r\n\r\nexport default class PDF extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n\r\n    render(){\r\n      <PDFView ref={(pdf)=>{this.pdfView = pdf;}}\r\n                         src={\"sdcard/pdffile.pdf\"}\r\n                         onLoadComplete = {(pageCount)=>{\r\n                            this.pdfView.setNativeProps({\r\n                                zoom: 1.5\r\n                            });\r\n                         }}\r\n                         style={styles.pdf}/>\r\n    }\r\n}\r\nvar styles = StyleSheet.create({\r\n    pdf: {\r\n        flex:1\r\n    }\r\n});\r\n```\r\n\r\n\r\n### Configuration\r\n\r\n| Property      | Type        \t| Default \t\t \t\t\t\t| Description | iOS | Android |\r\n| ------------- |:-------------:|:------------:\t\t\t\t| ----------- | --- | ------- |\r\n| path        | string \t\t\t| null \t\t\t \t\t\t\t| pdf absolute path| ✔   | ✔ |\r\n| src        | string \t\t\t| null \t\t\t \t\t\t\t| pdf absolute path(`Deprecated`) | ✔   | ✔ |\r\n| asset        | string \t\t\t| null \t\t\t \t\t\t\t| the name of a PDF file in the asset folder |   | ✔ |\r\n| pageNumber    \t\t  | number  \t    |\t1 \t\t \t\t\t\t| page index | ✔   | ✔ |\r\n| zoom \t\t  | number  \t    |\t1.0 \t| zoom scale | ✔   | ✔ |\r\n| onLoadComplete \t\t\t| function     \t  | null\t \t\t\t| page load complete,return page count | ✔   | ✔ |\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnjon/react-native-pdf-view.git"
+  },
+  "typings": "./index.d.ts",
+  "version": "0.4.0"
+}
